@@ -14,16 +14,20 @@ document.addEventListener("DOMContentLoaded", () => {
             return;
         }
 
-        // Create a new list item
+        // Create list item
         const li = document.createElement("li");
-        li.textContent = taskText;
+
+        // Add task text in a span
+        const span = document.createElement("span");
+        span.textContent = taskText;
+        li.appendChild(span);
 
         // Create remove button
         const removeBtn = document.createElement("button");
         removeBtn.textContent = "Remove";
         removeBtn.className = "remove-btn";
 
-        // Attach click event to remove the task
+        // Assign onclick event
         removeBtn.onclick = () => {
             taskList.removeChild(li);
         };
@@ -32,7 +36,7 @@ document.addEventListener("DOMContentLoaded", () => {
         li.appendChild(removeBtn);
         taskList.appendChild(li);
 
-        // Clear the input field
+        // Clear input
         taskInput.value = "";
     }
 
